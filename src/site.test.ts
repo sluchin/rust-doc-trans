@@ -41,7 +41,7 @@ describe("Rust site profile", () => {
       expect(versionOf(tab.homeUrl, pattern)).toBe("1.99.1");
     }
     expect(isDocUrl("https://doc.rust-lang.org/1.80.0/nomicon/data.html", site)).toBe(true);
-    // 同じホストの、ほかのドキュメント (標準ライブラリのリファレンスなど) は、アプリでは開かない
+    // 同じホストの, ほかのドキュメント (標準ライブラリのリファレンスなど) は, アプリでは開かない
     expect(isDocUrl("https://doc.rust-lang.org/1.99.1/std/index.html", site)).toBe(false);
     expect(isDocUrl("https://doc.rust-lang.org/reference/index.html", site)).toBe(false);
     expect(isDocUrl("https://example.com/1.99.1/book/", site)).toBe(false);

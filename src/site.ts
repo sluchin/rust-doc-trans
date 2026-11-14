@@ -44,7 +44,7 @@ export function rustVersions(text: string): VersionChoice[] {
  * Rust のドキュメント (doc.rust-lang.org. mdBook で作られている) の設定.
  *
  * The Book と Nomicon を, 画面の上のタブで切り替える. 版は, パスの先頭 (`/1.99.1/book/`) で, 画面で選ぶ
- * (翻訳のキャッシュも, 版ごとに分ける). 本文は `main`. 左のメニュー (目次) は, ページの中ではなく,
+ * (翻訳のキャッシュも版ごとに分ける). 本文は `main`. 左のメニュー (目次) は, ページの中ではなく,
  * 各ドキュメントの `toc.html` にある (番号つきの一覧 `ol`).
  */
 export const site: SiteProfile = {
@@ -53,10 +53,10 @@ export const site: SiteProfile = {
   pathPrefix: "/",
   homeUrl: `${ORIGIN}/${FIRST_VERSION}/book/index.html`,
   contentSelectors: ["main"],
-  // 隠れた行 (コードの例の, 初めと終わりの補い) と, ボタンと, 重ねて出す 2 枚目の画像の枠は, 本文ではない
+  // 隠れた行 (コードの例の初めと終わりの補い), ボタン, 重ねて出す 2 枚目の画像の枠は, 本文ではない
   removeSelectors: [".boring", "button", "input", ".img-wrapper"],
   titleSuffix: / - (The Rust Programming Language|The Rustonomicon)$/,
-  // 版は, パスの先頭. 版の一覧は, ページにないので, 標準ライブラリのページの, 今の安定版から作る
+  // 版は, パスの先頭. 版の一覧はページにないので, 標準ライブラリのページにある今の安定版から作る
   versions: {
     pattern: /^\/([^/]+)\//,
     list: { url: `${ORIGIN}/stable/std/index.html`, parse: rustVersions },
